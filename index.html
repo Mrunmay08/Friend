@@ -26,35 +26,33 @@ h1{font-size:2.8em; color:#ff4081; animation:rainbow 5s infinite linear;}
 h2{font-size:2em; margin-top:10px; color:#ff9800; animation:bounce 2s infinite;}
 p{font-size:1.2em; margin-top:15px; color:#333; animation:fadeIn 3s ease-in-out;}
 
+/* Card Animations */
 @keyframes popIn{0%{transform:scale(0);opacity:0;}100%{transform:scale(1);opacity:1;}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes rainbow{0%{color:#ff4081;}25%{color:#ffeb3b;}50%{color:#4caf50;}75%{color:#2196f3;}100%{color:#ff4081;}}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
+/* Floating Sparkles / Confetti */
+.sparkle {
+  position:absolute;
+  width:15px; height:15px;
+  background: radial-gradient(circle, #fff, #fffa, #ff0);
+  border-radius:50%;
+  opacity:0.8;
+  animation:float 10s linear infinite;
+}
+@keyframes float {
+  0% {transform: translateY(0) translateX(0) rotate(0deg); opacity:0.8;}
+  25% {transform: translateY(-50vh) translateX(20vw) rotate(90deg);}
+  50% {transform: translateY(-100vh) translateX(0vw) rotate(180deg);}
+  75% {transform: translateY(-150vh) translateX(-20vw) rotate(270deg);}
+  100% {transform: translateY(-200vh) translateX(0vw) rotate(360deg); opacity:0;}
+}
+
 /* Balloons */
-.balloon{position:absolute; bottom:-150px; width:60px; height:80px; border-radius:50%; background:red; animation:float 10s linear infinite; z-index:3;}
+.balloon{position:absolute; bottom:-150px; width:60px; height:80px; border-radius:50%; background:red; animation:floatBalloon 10s linear infinite; z-index:3;}
 .balloon::after{content:''; position:absolute; bottom:-20px; left:50%; width:2px; height:25px; background:#555;}
-@keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(-110vh) rotate(360deg);opacity:0;}}
-
-/* Birds images flying behind */
-.bird {
-  position:absolute; width:80px; height:80px; background-size:contain; background-repeat:no-repeat;
-  animation:fly linear infinite; z-index:0;
-}
-.bird1{background-image:url('https://i.imgur.com/H4n3dhH.png'); animation-duration:15s;}
-.bird2{background-image:url('https://i.imgur.com/2hI4FvV.png'); animation-duration:18s;}
-.bird3{background-image:url('https://i.imgur.com/PVxM4kZ.png'); animation-duration:20s;}
-.bird4{background-image:url('https://i.imgur.com/8sXUTV7.png'); animation-duration:17s;}
-.bird5{background-image:url('https://i.imgur.com/M3JxQLL.png'); animation-duration:22s;}
-.bird6{background-image:url('https://i.imgur.com/Z8QcR1G.png'); animation-duration:19s;}
-
-@keyframes fly {
-  0%{left:-100px; transform:translateY(0);}
-  25%{transform:translateY(-30px);}
-  50%{left:50%; transform:translateY(0);}
-  75%{transform:translateY(30px);}
-  100%{left:110%; transform:translateY(0);}
-}
+@keyframes floatBalloon{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(-110vh) rotate(360deg);opacity:0;}}
 
 /* Music button */
 #playMusicBtn{
@@ -69,13 +67,15 @@ p{font-size:1.2em; margin-top:15px; color:#333; animation:fadeIn 3s ease-in-out;
 
 <div class="sunrise"></div>
 
-<!-- Birds -->
-<div class="bird bird1" style="top:10%;"></div>
-<div class="bird bird2" style="top:20%;"></div>
-<div class="bird bird3" style="top:30%;"></div>
-<div class="bird bird4" style="top:40%;"></div>
-<div class="bird bird5" style="top:50%;"></div>
-<div class="bird bird6" style="top:60%;"></div>
+<!-- Sparkles / Confetti -->
+<div class="sparkle" style="top:10%; left:5%; animation-duration:8s;"></div>
+<div class="sparkle" style="top:20%; left:20%; animation-duration:10s;"></div>
+<div class="sparkle" style="top:30%; left:40%; animation-duration:12s;"></div>
+<div class="sparkle" style="top:40%; left:60%; animation-duration:9s;"></div>
+<div class="sparkle" style="top:50%; left:80%; animation-duration:11s;"></div>
+<div class="sparkle" style="top:60%; left:50%; animation-duration:13s;"></div>
+<div class="sparkle" style="top:70%; left:30%; animation-duration:15s;"></div>
+<div class="sparkle" style="top:80%; left:70%; animation-duration:14s;"></div>
 
 <!-- Greeting card -->
 <div class="card">
